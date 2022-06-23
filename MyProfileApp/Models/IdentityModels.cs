@@ -20,6 +20,15 @@ namespace MyProfileApp.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Person> Persons { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<Education> Educations { get; set; }
+        public DbSet<Experience> Experiences { get; set; }
+        public DbSet<Training> Trainings { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Skill> Skills { get; set; }
+        public DbSet<Language> Languages { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

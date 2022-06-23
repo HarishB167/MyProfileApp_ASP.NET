@@ -198,14 +198,37 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206231627437_FirstMigration.cs" />
+    <Compile Include="Migrations\202206231627437_FirstMigration.Designer.cs">
+      <DependentUpon>202206231627437_FirstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206231629024_AddingPersonModel.cs" />
+    <Compile Include="Migrations\202206231629024_AddingPersonModel.Designer.cs">
+      <DependentUpon>202206231629024_AddingPersonModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206231728217_AddingOtherModelClasses.cs" />
+    <Compile Include="Migrations\202206231728217_AddingOtherModelClasses.Designer.cs">
+      <DependentUpon>202206231728217_AddingOtherModelClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\Education.cs" />
+    <Compile Include="Models\Experience.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Language.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\Skill.cs" />
+    <Compile Include="Models\Training.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ViewProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-lumen.css" />
@@ -270,6 +293,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index2.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -283,6 +308,17 @@
     </Content>
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202206231627437_FirstMigration.resx">
+      <DependentUpon>202206231627437_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206231629024_AddingPersonModel.resx">
+      <DependentUpon>202206231629024_AddingPersonModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206231728217_AddingOtherModelClasses.resx">
+      <DependentUpon>202206231728217_AddingOtherModelClasses.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
