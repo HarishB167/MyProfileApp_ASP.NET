@@ -1,10 +1,6 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
-
+﻿
 /* Set padding to keep content from hitting the edges */
-.body-content {
+.body-content, .navbar {
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -21,4 +17,29 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.subheading {
+  color: #2079c8;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.item {
+  margin-bottom: 5px;
+}
+
+.title {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.subtitle {
+  font-style: italic;
+  margin-left: 5px;
+}
+
+.description {
+  color: #525252;
 }

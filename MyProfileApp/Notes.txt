@@ -1,0 +1,15 @@
+﻿Person model : Name, Profile statement
+
+Project model : Title, subtitle, description
+
+Education model : Qualification, Institute, Score
+
+Experience model : Title, subtitle, duration, responsibilities
+
+Trainings model : Title, subtitle, description
+
+Contact model : Address, phone, profile link
+
+Skills model : Name
+
+Languages : Name
