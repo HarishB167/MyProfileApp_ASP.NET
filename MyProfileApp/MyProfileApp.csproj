@@ -214,6 +214,10 @@
     <Compile Include="Migrations\202206231728217_AddingOtherModelClasses.Designer.cs">
       <DependentUpon>202206231728217_AddingOtherModelClasses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206231837192_ExperienceModelDurationChangedToDateTime.cs" />
+    <Compile Include="Migrations\202206231837192_ExperienceModelDurationChangedToDateTime.Designer.cs">
+      <DependentUpon>202206231837192_ExperienceModelDurationChangedToDateTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -318,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206231728217_AddingOtherModelClasses.resx">
       <DependentUpon>202206231728217_AddingOtherModelClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206231837192_ExperienceModelDurationChangedToDateTime.resx">
+      <DependentUpon>202206231837192_ExperienceModelDurationChangedToDateTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

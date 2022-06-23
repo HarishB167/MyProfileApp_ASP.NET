@@ -17,7 +17,9 @@ namespace MyProfileApp.Models
         public string Subtitle { get; set; }
 
         [Required]
-        public TimeSpan Duration { get; set; }
+        public DateTime Start { get; set; }
+        [Required]
+        public DateTime End { get; set; }
 
         [Required]
         public string Responsibilities { get; set; }

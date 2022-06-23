@@ -3,11 +3,101 @@
     ViewBag.Title = "View";
 }
 
-<div>
-    <h2>@Model.Person.Name</h2>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-6">
+            <h1 style="margin-top:0;">@Model.Person.Name</h1>
+            <p>
+                @Model.Person.ProfileStatement
+            </p>
 
-    @foreach (var s in Model.Skills)
-    {
-        <h4>@s.Name</h4>
-    }
+            <div class="subheading">PROJECTS</div>
+            <div class="item">
+                @foreach (var project in Model.Projects)
+                {
+                    <div class="d-flex flex-row">
+                        <div class="title">@project.Title</div>
+                        <text> - </text>
+                        <div class="subtitle">@project.Subtitle</div>
+                    </div>
+                    <div class="description">@project.Description</div>
+                }                
+            </div>
+
+            <div class="subheading">EDUCATION</div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Diploma/Grade</th>
+                        <th scope="col">Board</th>
+                        <th scope="col">Percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var education in Model.Educations)
+                    {
+                        <tr>
+                            <td>@education.Qualification</td>
+                            <td>@education.Institute</td>
+                            <td>@education.Score</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="subheading">EXPERIENCE</div>
+            <div class="item">
+                @foreach (var experience in Model.Experiences)
+                {
+                    <div class="d-flex flex-row">
+                        <div class="title">@experience.Title</div>
+                        <text> - </text>
+                        <div class="subtitle">@experience.Subtitle</div>
+                    </div>
+                    <div class="description">
+                        <p>@experience.Start.ToString("MMMM yyyy") - @experience.End.ToString("MMMM yyyy")</p>
+                        <p>@experience.Responsibilities</p>
+                    </div>
+                }
+            </div>
+
+            <div class="subheading">TRAININGS</div>
+            <div class="item">
+                @foreach (var training in Model.Trainings)
+                {
+                    <div class="d-flex flex-row">
+                        <div class="title">@training.Title</div>
+                        <text> - </text>
+                        <div class="subtitle">@training.Subtitle</div>
+                    </div>
+                    <div class="description">@training.Description</div>
+                }
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="contact-info">
+                <p>
+                    @Model.Contact.Address
+                </p>
+            </div>
+            <div class="contact-info">@Model.Contact.Phone</div>
+            <div class="contact-info">
+                @Model.Contact.ProfileLink
+            </div>
+            <div class="subheading">SKILLS</div>
+            <div class="skills">
+                <ul>
+                    @foreach (var skill in Model.Skills)
+                    {
+                        <li>@skill.Name</li>
+                    }
+                </ul>
+            </div>
+            <div class="subheading">LANGUAGES</div>
+            <div class="description">
+                @string.Join(", ", Model.Languages)
+            </div>
+        </div>
+    </div>
 </div>
+

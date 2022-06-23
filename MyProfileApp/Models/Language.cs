@@ -16,5 +16,10 @@ namespace MyProfileApp.Models
         public Person Person { get; set; }
         [Required]
         public int PersonId { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
