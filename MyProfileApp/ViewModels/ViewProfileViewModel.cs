@@ -17,7 +17,7 @@ namespace MyProfileApp.ViewModels
         public List<Experience> Experiences { get; set; }
 
         public List<Training> Trainings { get; set; }
-
+        
         public Contact Contact { get; set; }
 
         public List<Skill> Skills { get; set; }

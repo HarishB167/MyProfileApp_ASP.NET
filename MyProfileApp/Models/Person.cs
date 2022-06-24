@@ -14,6 +14,7 @@ namespace MyProfileApp.Models
         public string Name { get; set; }
 
         [Required]
+        [Display(Name = "Profile Statement")]
         public string ProfileStatement { get; set; }
     }
 }
