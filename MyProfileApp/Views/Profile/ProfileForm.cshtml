@@ -46,145 +46,145 @@ else
             </div>
         </div>
     </div>
-        <hr />
-        <div class="row">
-            <div class="col-6">
-                <h4>Projects</h4>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Project.Title)
-                    @Html.TextBoxFor(m => m.Project.Title, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Project.Title)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Project.Subtitle)
-                    @Html.TextBoxFor(m => m.Project.Subtitle, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Project.Subtitle)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Project.Description)
-                    @Html.TextBoxFor(m => m.Project.Description, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Project.Description)
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                        <ul id="projects" class="list-group"></ul>
-                    </div>
-                </div>
+    <hr />
+    <div class="row">
+        <div class="col-6">
+            <h4>Projects</h4>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Project.Title)
+                @Html.TextBoxFor(m => m.Project.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Project.Title)
             </div>
-            <div class="col-6">
-                <h4>Education</h4>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Education.Qualification)
-                    @Html.TextBoxFor(m => m.Education.Qualification, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Education.Qualification)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Education.Institute)
-                    @Html.TextBoxFor(m => m.Education.Institute, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Education.Institute)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Education.Score)
-                    @Html.TextBoxFor(m => m.Education.Score, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Education.Score)
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                        <ul id="education" class="list-group"></ul>
-                    </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Project.Subtitle)
+                @Html.TextBoxFor(m => m.Project.Subtitle, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Project.Subtitle)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Project.Description)
+                @Html.TextBoxFor(m => m.Project.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Project.Description)
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <ul id="projects" class="list-group"></ul>
                 </div>
             </div>
         </div>
-        <hr />
-        <div class="row">
-            <div class="col-6">
-                <h4>Experience</h4>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Experience.Title)
-                    @Html.TextBoxFor(m => m.Experience.Title, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Experience.Title)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Experience.Subtitle)
-                    @Html.TextBoxFor(m => m.Experience.Subtitle, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Experience.Subtitle)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Experience.Start)
-                    @Html.TextBoxFor(m => m.Experience.Start, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Experience.Start)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Experience.End)
-                    @Html.TextBoxFor(m => m.Experience.End, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Experience.End)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Experience.Responsibilities)
-                    @Html.TextBoxFor(m => m.Experience.Responsibilities, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Experience.Responsibilities)
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                        <ul id="experience" class="list-group"></ul>
-                    </div>
-                </div>
+        <div class="col-6">
+            <h4>Education</h4>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Education.Qualification)
+                @Html.TextBoxFor(m => m.Education.Qualification, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Education.Qualification)
             </div>
-            <div class="col-6">
-                <h4>Trainings</h4>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Training.Title)
-                    @Html.TextBoxFor(m => m.Training.Title, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Training.Title)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Training.Subtitle)
-                    @Html.TextBoxFor(m => m.Training.Subtitle, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Training.Subtitle)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Training.Description)
-                    @Html.TextBoxFor(m => m.Training.Description, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Training.Description)
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                        <ul id="training" class="list-group"></ul>
-                    </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Education.Institute)
+                @Html.TextBoxFor(m => m.Education.Institute, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Education.Institute)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Education.Score)
+                @Html.TextBoxFor(m => m.Education.Score, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Education.Score)
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <ul id="education" class="list-group"></ul>
                 </div>
             </div>
         </div>
-        <hr />
-        <div class="row">
-            <div class="col-6">
-                <h4>Skills</h4>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Skill.Name)
-                    @Html.TextBoxFor(m => m.Skill.Name, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Skill.Name)
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                        <ul id="skill" class="list-group"></ul>
-                    </div>
-                </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-6">
+            <h4>Experience</h4>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Experience.Title)
+                @Html.TextBoxFor(m => m.Experience.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Experience.Title)
             </div>
-            <div class="col-6">
-                <h4>Languages</h4>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Language.Name)
-                    @Html.TextBoxFor(m => m.Language.Name, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Language.Name)
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                        <ul id="language" class="list-group"></ul>
-                    </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Experience.Subtitle)
+                @Html.TextBoxFor(m => m.Experience.Subtitle, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Experience.Subtitle)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Experience.Start)
+                @Html.TextBoxFor(m => m.Experience.Start, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Experience.Start)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Experience.End)
+                @Html.TextBoxFor(m => m.Experience.End, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Experience.End)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Experience.Responsibilities)
+                @Html.TextBoxFor(m => m.Experience.Responsibilities, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Experience.Responsibilities)
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <ul id="experience" class="list-group"></ul>
                 </div>
             </div>
         </div>
-        @Html.HiddenFor(m => m.Person.Id)
-        @Html.AntiForgeryToken()
-        <button type="submit" class="btn btn-primary">Save</button>
+        <div class="col-6">
+            <h4>Trainings</h4>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Training.Title)
+                @Html.TextBoxFor(m => m.Training.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Training.Title)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Training.Subtitle)
+                @Html.TextBoxFor(m => m.Training.Subtitle, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Training.Subtitle)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Training.Description)
+                @Html.TextBoxFor(m => m.Training.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Training.Description)
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <ul id="training" class="list-group"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-6">
+            <h4>Skills</h4>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Skill.Name)
+                @Html.TextBoxFor(m => m.Skill.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Skill.Name)
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <ul id="skill" class="list-group"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <h4>Languages</h4>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Language.Name)
+                @Html.TextBoxFor(m => m.Language.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Language.Name)
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <ul id="language" class="list-group"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.HiddenFor(m => m.Person.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
 }
 
