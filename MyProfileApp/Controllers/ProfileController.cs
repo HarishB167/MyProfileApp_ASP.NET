@@ -29,6 +29,15 @@ namespace MyProfileApp.Controllers
             return View(persons);
         }
 
+        public ActionResult New()
+        {
+            var saveModel = new SavePersonContactViewModel
+            {
+                Person = new Person()
+            };
+            return View("PersonForm", saveModel);
+        }
+
         public ActionResult View(int id)
         {
             var person = _context.Persons.SingleOrDefault(c => c.Id == id);
@@ -49,13 +58,15 @@ namespace MyProfileApp.Controllers
             return View(profileView);
         }
 
-        public ActionResult New()
+        public ActionResult Delete(int id)
         {
-            var saveModel = new SavePersonContactViewModel
-            {
-                Person = new Person()
-            };
-            return View("PersonForm", saveModel);
+            var profileInDb = _context.Persons.SingleOrDefault(c => c.Id == id);
+            if (profileInDb == null)
+                return HttpNotFound();
+
+            _context.Persons.Remove(profileInDb);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         public ActionResult AddEditInfo(int id)

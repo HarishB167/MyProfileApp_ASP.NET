@@ -47,7 +47,7 @@ namespace MyProfileApp.Controllers
                 projectInDb.Description = project.Description;
             }
             _context.SaveChanges();
-            return RedirectToAction("AddInfo", "Profile", new { id = project.PersonId });
+            return RedirectToAction("AddEditInfo", "Profile", new { id = project.PersonId });
         }
     }
 }

@@ -24,7 +24,7 @@ namespace MyProfileApp.Controllers
         
         public ActionResult AddPersonNContact()
         {
-            return View(new AddPersonNContactViewModel
+            return View("PersonNContactForm", new AddPersonNContactViewModel
             {
                 Person = new Person(),
                 Contact = new Contact()
@@ -57,6 +57,7 @@ namespace MyProfileApp.Controllers
                 {
                     Address = viewModel.Contact.Address,
                     Phone = viewModel.Contact.Phone,
+                    Email = viewModel.Contact.Email,
                     ProfileLink = viewModel.Contact.ProfileLink,
                     PersonId = personId
                 };
@@ -67,10 +68,26 @@ namespace MyProfileApp.Controllers
                 var contactInDb = _context.Contacts.Single(c => c.Id == viewModel.Contact.Id);
                 contactInDb.Address = viewModel.Contact.Address;
                 contactInDb.Phone = viewModel.Contact.Phone;
+                contactInDb.Email = viewModel.Contact.Email;
                 contactInDb.ProfileLink = viewModel.Contact.ProfileLink;
             }
             _context.SaveChanges();
             return RedirectToAction("AddEditInfo", "Profile", new { id = personId });
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var person = _context.Persons.SingleOrDefault(p => p.Id == id);
+
+            if (person == null)
+                return HttpNotFound();
+
+            return View("PersonNContactForm", new AddPersonNContactViewModel
+            {
+                PersonId = id,
+                Person = person,
+                Contact = _context.Contacts.Single(c => c.PersonId == id)
+            });
         }
     }
 }

@@ -10,7 +10,10 @@ namespace MyProfileApp.ViewModels
     {
         public int PersonId { get; set; }
 
-        public Skill Skill { get; set; }
-        public Language Language { get; set; }
+        public string Skill { get; set; }
+        public int SkillId { get; set; }
+
+        public string Language { get; set; }
+        public int LanguageId { get; set; }
     }
 }

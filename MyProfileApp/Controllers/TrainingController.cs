@@ -47,7 +47,7 @@ namespace MyProfileApp.Controllers
                 experienceInDb.Description = training.Description;
             }
             _context.SaveChanges();
-            return RedirectToAction("AddInfo", "Profile", new { id = training.PersonId });
+            return RedirectToAction("AddEditInfo", "Profile", new { id = training.PersonId });
         }
     }
 }

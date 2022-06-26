@@ -47,7 +47,7 @@ namespace MyProfileApp.Controllers
                 educationInDb.Score = education.Score;
             }
             _context.SaveChanges();
-            return RedirectToAction("AddInfo", "Profile", new { id = education.PersonId });
+            return RedirectToAction("AddEditInfo", "Profile", new { id = education.PersonId });
         }
     }
 }

@@ -75,6 +75,7 @@
             </div>
         </div>
         <div class="col-4">
+            <div class="contact-info">@Model.Contact.Email</div>
             <div class="contact-info">
                 <p>
                     @Model.Contact.Address
@@ -99,6 +100,7 @@
             </div>
         </div>
         <div class="col-2">
+            @Html.ActionLink("Edit Name/Contact", "Edit", "PersonNContact", new { id = Model.Person.Id }, new { @class = "btn btn-link" })
             @Html.ActionLink("Add/Edit Project", "AddProject", "Project", new { id = Model.Person.Id }, new { @class = "btn btn-link" })
             @Html.ActionLink("Add/Edit Education", "AddEducation", "Education", new { id = Model.Person.Id }, new { @class = "btn btn-link" })
             @Html.ActionLink("Add/Edit Experience", "AddExperience", "Experience", new { id = Model.Person.Id }, new { @class = "btn btn-link" })

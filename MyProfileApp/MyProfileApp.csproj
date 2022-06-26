@@ -248,6 +248,10 @@
     <Compile Include="Migrations\202206231837192_ExperienceModelDurationChangedToDateTime.Designer.cs">
       <DependentUpon>202206231837192_ExperienceModelDurationChangedToDateTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206261518523_AddingEmailToContactModel.cs" />
+    <Compile Include="Migrations\202206261518523_AddingEmailToContactModel.Designer.cs">
+      <DependentUpon>202206261518523_AddingEmailToContactModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -340,7 +344,7 @@
     <Content Include="Views\Project\AddProject.cshtml" />
     <Content Include="Views\Training\AddTraining.cshtml" />
     <Content Include="Views\SkillNLanguage\AddSkillNLanguage.cshtml" />
-    <Content Include="Views\PersonNContact\AddPersonNContact.cshtml" />
+    <Content Include="Views\PersonNContact\PersonNContactForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -367,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206231837192_ExperienceModelDurationChangedToDateTime.resx">
       <DependentUpon>202206231837192_ExperienceModelDurationChangedToDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206261518523_AddingEmailToContactModel.resx">
+      <DependentUpon>202206261518523_AddingEmailToContactModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

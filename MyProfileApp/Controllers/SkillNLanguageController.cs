@@ -27,9 +27,7 @@ namespace MyProfileApp.Controllers
         {
             return View(new AddSkillNLanguageViewModel
             {
-                PersonId = perId,
-                Skill = new Skill(),
-                Language = new Language()
+                PersonId = perId
             });
         }
 
@@ -39,24 +37,24 @@ namespace MyProfileApp.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("AddSkillNLanguageb", viewModel);
+                return View("AddSkillNLanguage", viewModel);
             }
-            if (!string.IsNullOrWhiteSpace(viewModel.Skill.Name))
+            if (!string.IsNullOrWhiteSpace(viewModel.Skill))
             {
-                if (viewModel.Skill.Id == 0)
-                    _context.Skills.Add(new Skill { Name = viewModel.Skill.Name, PersonId = viewModel.PersonId });
+                if (viewModel.SkillId == 0)
+                    _context.Skills.Add(new Skill { Name = viewModel.Skill, PersonId = viewModel.PersonId });
                 else
-                    _context.Skills.Single(s => s.Id == viewModel.Skill.Id).Name = viewModel.Skill.Name;
+                    _context.Skills.Single(s => s.Id == viewModel.SkillId).Name = viewModel.Skill;
             }
-            if (!string.IsNullOrWhiteSpace(viewModel.Language.Name))
+            if (!string.IsNullOrWhiteSpace(viewModel.Language))
             {
-                if (viewModel.Language.Id == 0)
-                    _context.Languages.Add(new Language { Name = viewModel.Language.Name, PersonId = viewModel.PersonId });
+                if (viewModel.LanguageId == 0)
+                    _context.Languages.Add(new Language { Name = viewModel.Language, PersonId = viewModel.PersonId });
                 else
-                    _context.Languages.Single(s => s.Id == viewModel.Language.Id).Name = viewModel.Language.Name;
+                    _context.Languages.Single(s => s.Id == viewModel.LanguageId).Name = viewModel.Language;
             }
             _context.SaveChanges();
-            return RedirectToAction("AddInfo", "Profile", new { id = viewModel.PersonId });
+            return RedirectToAction("AddEditInfo", "Profile", new { id = viewModel.PersonId });
         }
     }
 }

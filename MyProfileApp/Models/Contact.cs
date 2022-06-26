@@ -17,6 +17,9 @@ namespace MyProfileApp.Models
         public string Phone { get; set; }
 
         [Required]
+        public string Email { get; set; }
+
+        [Required]
         [Display(Name = "Profile Link")]
         public string ProfileLink { get; set; }
 

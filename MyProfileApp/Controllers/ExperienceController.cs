@@ -49,7 +49,7 @@ namespace MyProfileApp.Controllers
                 experienceInDb.Responsibilities = experience.Responsibilities;
             }
             _context.SaveChanges();
-            return RedirectToAction("AddInfo", "Profile", new { id = experience.PersonId });
+            return RedirectToAction("AddEditInfo", "Profile", new { id = experience.PersonId });
         }
     }
 }
