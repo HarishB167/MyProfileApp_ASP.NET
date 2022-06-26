@@ -22,22 +22,50 @@ namespace MyProfileApp.Controllers
             _context.Dispose();
         }
 
-        [Route("SkillNLanguage/AddSkillNLanguage/{perId}")]
-        public ActionResult AddSkillNLanguage(int perId)
+        [Route("SkillNLanguage/AddEditSkillNLanguage/{perId}")]
+        public ActionResult AddEditSkillNLanguage(int perId)
         {
-            return View(new AddSkillNLanguageViewModel
+            return View("AddEditSkillNLanguage", new AddEditSkillNLanguageViewModel
             {
-                PersonId = perId
+                PersonId = perId,
+                ExistingSkills = _context.Skills.Where(s => s.PersonId == perId).ToList(),
+                ExistingLanguages= _context.Languages.Where(l => l.PersonId == perId).ToList()
+            });
+        }
+
+        [Route("SkillNLanguage/EditSkill/{perId}/{skillId}", Name = "EditSkill")]
+        public ActionResult EditSkill(int perId, int skillId)
+        {
+            return View("AddEditSkillNLanguage", new AddEditSkillNLanguageViewModel
+            {
+                PersonId = perId,
+                SkillId = skillId,
+                Skill = _context.Skills.Single(s => s.Id == skillId).Name,
+                ExistingSkills = _context.Skills.Where(s => s.PersonId == perId).ToList(),
+                ExistingLanguages = _context.Languages.Where(l => l.PersonId == perId).ToList()
+            });
+        }
+
+        [Route("SkillNLanguage/EditLanguage/{perId}/{languageId}", Name = "EditLanguage")]
+        public ActionResult EditLanguage(int perId, int languageId)
+        {
+            return View("AddEditSkillNLanguage", new AddEditSkillNLanguageViewModel
+            {
+                PersonId = perId,
+                LanguageId = languageId,
+                Language = _context.Languages.Single(l => l.Id == languageId).Name,
+                ExistingSkills = _context.Skills.Where(s => s.PersonId == perId).ToList(),
+                ExistingLanguages = _context.Languages.Where(l => l.PersonId == perId).ToList()
             });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SaveSkillNLanguage(AddSkillNLanguageViewModel viewModel)
+        public ActionResult SaveSkillNLanguage(AddEditSkillNLanguageViewModel viewModel)
         {
             if (!ModelState.IsValid)
             {
-                return View("AddSkillNLanguage", viewModel);
+                return View("AddEditSkillNLanguage", viewModel);
             }
             if (!string.IsNullOrWhiteSpace(viewModel.Skill))
             {
@@ -55,6 +83,28 @@ namespace MyProfileApp.Controllers
             }
             _context.SaveChanges();
             return RedirectToAction("AddEditInfo", "Profile", new { id = viewModel.PersonId });
+        }
+
+        public ActionResult DeleteSkill(int id)
+        {
+            var skillInDb = _context.Skills.SingleOrDefault(s => s.Id == id);
+            if (skillInDb == null)
+                return HttpNotFound();
+
+            _context.Skills.Remove(skillInDb);
+            _context.SaveChanges();
+            return RedirectToAction("AddEditSkillNLanguage", "SkillNLanguage", new { id = skillInDb.PersonId });
+        }
+
+        public ActionResult DeleteLanguage(int id)
+        {
+            var languageInDb = _context.Languages.SingleOrDefault(l => l.Id == id);
+            if (languageInDb == null)
+                return HttpNotFound();
+
+            _context.Languages.Remove(languageInDb);
+            _context.SaveChanges();
+            return RedirectToAction("AddEditSkillNLanguage", "SkillNLanguage", new { id = languageInDb.PersonId });
         }
     }
 }

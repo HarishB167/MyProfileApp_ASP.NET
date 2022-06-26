@@ -1,0 +1,74 @@
+﻿@model MyProfileApp.ViewModels.AddEditGenericModelViewModel<MyProfileApp.Models.Experience>
+@{
+    ViewBag.Title = "Profie";
+}
+
+@if (Model.Model.Id == 0)
+{
+    <h1>New Experience</h1>
+}
+else
+{
+    <h1>Edit Experience</h1>
+}
+
+@using (Html.BeginForm("SaveExperience", "Experience"))
+{
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Model.Title)
+                @Html.TextBoxFor(m => m.Model.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Model.Title)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Model.Subtitle)
+                @Html.TextBoxFor(m => m.Model.Subtitle, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Model.Subtitle)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Model.Start)
+                @Html.TextBoxFor(m => m.Model.Start, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Model.Start)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Model.End)
+                @Html.TextBoxFor(m => m.Model.End, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Model.End)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Model.Responsibilities)
+                @Html.TextBoxFor(m => m.Model.Responsibilities, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Model.Responsibilities)
+            </div>
+        </div>
+        <div class="col-8">
+            <table class="table table-striped table-hover ">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Subtitle</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var experience in Model.ExistingModels)
+                    {
+                        <tr>
+                            <td>@experience.Title</td>
+                            <td>@experience.Subtitle</td>
+                            <td>@Html.RouteLink("Edit", "EditExperience", new { perId = experience.PersonId, experienceId = experience.Id }, new { @class = "btn btn-link" })</td>
+                            <td>@Html.ActionLink("Delete", "Delete", "Experience", new { id = experience.Id }, new { @class = "btn btn-danger btn-sm" })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @Html.HiddenFor(m => m.Model.Id)
+    @Html.HiddenFor(m => m.Model.PersonId)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}

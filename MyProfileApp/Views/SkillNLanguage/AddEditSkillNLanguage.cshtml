@@ -1,0 +1,80 @@
+﻿@model MyProfileApp.ViewModels.AddEditSkillNLanguageViewModel
+@{
+    ViewBag.Title = "Profie";
+}
+
+@if (Model.PersonId == 0)
+{
+    <h1>New Skills / Language</h1>
+}
+else
+{
+    <h1>Edit Skills / Language</h1>
+}
+
+@using (Html.BeginForm("SaveSkillNLanguage", "SkillNLanguage"))
+{
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Skill)
+                @Html.TextBoxFor(m => m.Skill, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Skill)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Language)
+                @Html.TextBoxFor(m => m.Language, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Language)
+            </div>
+            @Html.HiddenFor(m => m.SkillId)
+            @Html.HiddenFor(m => m.LanguageId)
+            @Html.HiddenFor(m => m.PersonId)
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+        <div class="col-4">
+            <table class="table table-striped table-hover ">
+                <thead>
+                    <tr>
+                        <th>Skill</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var skill in Model.ExistingSkills)
+                    {
+                        <tr>
+                            <td>@skill.Name</td>
+                            <td>@Html.RouteLink("Edit", "EditSkill", new { perId = skill.PersonId, skillId = skill.Id }, new { @class = "btn btn-link" })</td>
+                            <td>@Html.ActionLink("Delete", "DeleteSkill", "SkillNLanguage", new { id = skill.Id }, new { @class = "btn btn-danger btn-sm" })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-4">
+            <table class="table table-striped table-hover ">
+                <thead>
+                    <tr>
+                        <th>Language</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var lang in Model.ExistingLanguages)
+                    {
+                        <tr>
+                            <td>@lang.Name</td>
+                            <td>@Html.RouteLink("Edit", "EditLanguage", new { perId = lang.PersonId, languageId = lang.Id }, new { @class = "btn btn-link" })</td>
+                            <td>@Html.ActionLink("Delete", "DeleteLanguage", "SkillNLanguage", new { id = lang.Id }, new { @class = "btn btn-danger btn-sm" })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}

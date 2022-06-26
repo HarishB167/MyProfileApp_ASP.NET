@@ -267,8 +267,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AddEditProjectViewModel.cs" />
+    <Compile Include="ViewModels\AddEditGenericModelViewModel.cs" />
     <Compile Include="ViewModels\AddPersonNContactViewModel.cs" />
-    <Compile Include="ViewModels\AddSkillNLanguageViewModel.cs" />
+    <Compile Include="ViewModels\AddEditSkillNLanguageViewModel.cs" />
     <Compile Include="ViewModels\SavePersonContactViewModel.cs" />
     <Compile Include="ViewModels\SaveProfileViewModel.cs" />
     <Compile Include="ViewModels\ViewProfileViewModel.cs" />
@@ -340,11 +341,11 @@
     <Content Include="Views\Profile\ProfileForm.cshtml" />
     <Content Include="Views\Profile\PersonForm.cshtml" />
     <Content Include="Views\Profile\AddEditInfoForm.cshtml" />
-    <Content Include="Views\Education\AddEducation.cshtml" />
-    <Content Include="Views\Experience\AddExperience.cshtml" />
+    <Content Include="Views\Education\AddEditEducation.cshtml" />
+    <Content Include="Views\Experience\AddEditExperience.cshtml" />
     <Content Include="Views\Project\AddEditProject.cshtml" />
-    <Content Include="Views\Training\AddTraining.cshtml" />
-    <Content Include="Views\SkillNLanguage\AddSkillNLanguage.cshtml" />
+    <Content Include="Views\Training\AddEditTraining.cshtml" />
+    <Content Include="Views\SkillNLanguage\AddEditSkillNLanguage.cshtml" />
     <Content Include="Views\PersonNContact\PersonNContactForm.cshtml" />
   </ItemGroup>
   <ItemGroup>

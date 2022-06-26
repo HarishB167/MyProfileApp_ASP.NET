@@ -1,0 +1,64 @@
+﻿@model MyProfileApp.ViewModels.AddEditGenericModelViewModel<MyProfileApp.Models.Education>
+@{
+    ViewBag.Title = "Profie";
+}
+
+@if (Model.Model.Id == 0)
+{
+    <h1>New Education</h1>
+}
+else
+{
+    <h1>Edit Education</h1>
+}
+
+@using (Html.BeginForm("SaveEducation", "Education"))
+{
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Model.Qualification)
+                @Html.TextBoxFor(m => m.Model.Qualification, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Model.Qualification)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Model.Institute)
+                @Html.TextBoxFor(m => m.Model.Institute, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Model.Institute)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Model.Score)
+                @Html.TextBoxFor(m => m.Model.Score, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Model.Score)
+            </div>
+        </div>
+        <div class="col-8">
+            <table class="table table-striped table-hover ">
+                <thead>
+                    <tr>
+                        <th>Qualification</th>
+                        <th>Institute</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var education in Model.ExistingModels)
+                    {
+                        <tr>
+                            <td>@education.Qualification</td>
+                            <td>@education.Institute</td>
+                            <td>@Html.RouteLink("Edit", "EditEducation", new { perId = education.PersonId, educationId = education.Id }, new { @class = "btn btn-link" })</td>
+                            <td>@Html.ActionLink("Delete", "Delete", "Education", new { id = education.Id }, new { @class = "btn btn-danger btn-sm" })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        </div>
+    @Html.HiddenFor(m => m.Model.Id)
+    @Html.HiddenFor(m => m.Model.PersonId)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}

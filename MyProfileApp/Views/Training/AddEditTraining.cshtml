@@ -1,0 +1,64 @@
+﻿@model MyProfileApp.ViewModels.AddEditGenericModelViewModel<MyProfileApp.Models.Training>
+@{
+    ViewBag.Title = "Profie";
+}
+
+@if (Model.Model.Id == 0)
+{
+    <h1>New Training</h1>
+}
+else
+{
+    <h1>Edit Training</h1>
+}
+
+@using (Html.BeginForm("SaveTraining", "Training"))
+{
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Model.Title)
+                @Html.TextBoxFor(m => m.Model.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Model.Title)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Model.Subtitle)
+                @Html.TextBoxFor(m => m.Model.Subtitle, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Model.Subtitle)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Model.Description)
+                @Html.TextBoxFor(m => m.Model.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Model.Description)
+            </div>
+        </div>
+        <div class="col-8">
+            <table class="table table-striped table-hover ">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Subtitle</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var training in Model.ExistingModels)
+                    {
+                        <tr>
+                            <td>@training.Title</td>
+                            <td>@training.Subtitle</td>
+                            <td>@Html.RouteLink("Edit", "EditTraining", new { perId = training.PersonId, trainingId = training.Id }, new { @class = "btn btn-link" })</td>
+                            <td>@Html.ActionLink("Delete", "Delete", "Training", new { id = training.Id }, new { @class = "btn btn-danger btn-sm" })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @Html.HiddenFor(m => m.Model.Id)
+    @Html.HiddenFor(m => m.Model.PersonId)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}

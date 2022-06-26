@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MyProfileApp.ViewModels
 {
-    public class AddSkillNLanguageViewModel
+    public class AddEditSkillNLanguageViewModel
     {
         public int PersonId { get; set; }
 
@@ -15,5 +15,8 @@ namespace MyProfileApp.ViewModels
 
         public string Language { get; set; }
         public int LanguageId { get; set; }
+
+        public IEnumerable<Skill> ExistingSkills { get; set; }
+        public IEnumerable<Language> ExistingLanguages { get; set; }
     }
 }

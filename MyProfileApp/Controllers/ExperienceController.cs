@@ -1,4 +1,5 @@
 ﻿using MyProfileApp.Models;
+using MyProfileApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,35 +22,60 @@ namespace MyProfileApp.Controllers
             _context.Dispose();
         }
 
-        [Route("Experience/AddExperience/{perId}")]
-        public ActionResult AddExperience(int perId)
+        [Route("Experience/AddEditExperience/{perId}")]
+        public ActionResult AddEditExperience(int perId)
         {
-            return View(new Experience { PersonId = perId });
+            return View(new AddEditGenericModelViewModel<Experience>
+            {
+                Model = new Experience { PersonId = perId },
+                ExistingModels = _context.Experiences.Where(e => e.PersonId == perId).ToList()
+            });
+        }
+
+        [Route("Experience/AddEditExperience/{perId}/{experienceId}", Name = "EditExperience")]
+        public ActionResult AddEditExperience(int perId, int experienceId)
+        {
+            return View(new AddEditGenericModelViewModel<Experience>
+            {
+                Model = _context.Experiences.Single(e => e.Id == experienceId),
+                ExistingModels = _context.Experiences.Where(e => e.PersonId == perId).ToList()
+            });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SaveExperience(Experience experience)
+        public ActionResult SaveExperience(AddEditGenericModelViewModel<Experience> viewModel)
         {
             if (!ModelState.IsValid)
             {
-                return View("AddExperience", experience);
+                return View("AddEditExperience", viewModel);
             }
-            if (experience.Id == 0)
+            if (viewModel.Model.Id == 0)
             {
-                _context.Experiences.Add(experience);
+                _context.Experiences.Add(viewModel.Model);
             }
             else
             {
-                var experienceInDb = _context.Experiences.Single(p => p.Id == experience.Id);
-                experienceInDb.Title = experience.Title;
-                experienceInDb.Subtitle= experience.Subtitle;
-                experienceInDb.Start = experience.Start;
-                experienceInDb.End = experience.End;
-                experienceInDb.Responsibilities = experience.Responsibilities;
+                var experienceInDb = _context.Experiences.Single(p => p.Id == viewModel.Model.Id);
+                experienceInDb.Title = viewModel.Model.Title;
+                experienceInDb.Subtitle= viewModel.Model.Subtitle;
+                experienceInDb.Start = viewModel.Model.Start;
+                experienceInDb.End = viewModel.Model.End;
+                experienceInDb.Responsibilities = viewModel.Model.Responsibilities;
             }
             _context.SaveChanges();
-            return RedirectToAction("AddEditInfo", "Profile", new { id = experience.PersonId });
+            return RedirectToAction("AddEditInfo", "Profile", new { id = viewModel.Model.PersonId });
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var experienceInDb = _context.Experiences.SingleOrDefault(e => e.Id == id);
+            if (experienceInDb == null)
+                return HttpNotFound();
+
+            _context.Experiences.Remove(experienceInDb);
+            _context.SaveChanges();
+            return RedirectToAction("AddEditExperience", "Experience", new { id = experienceInDb.PersonId });
         }
     }
 }
