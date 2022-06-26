@@ -5,7 +5,7 @@
 
 <h2>Profiles list</h2>
 <div>
-    @Html.ActionLink("New Profile", "New", "Profile", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("New Profile", "AddPersonNContact", "PersonNContact", null, new { @class = "btn btn-primary" })
 </div>
 <div>
     <table class="table table-striped table-hover ">
@@ -22,7 +22,7 @@
                 <tr>
                     <td>@Html.ActionLink(person.Name, "View", "Profile", new { id = person.Id }, null)</td>
                     <td>@person.ProfileStatement</td>
-                    <td>@Html.ActionLink("Edit", "Edit", "Profile", new { id = person.Id }, new { @class = "btn btn-link" })</td>
+                    <td>@Html.ActionLink("Edit", "AddEditInfo", "Profile", new { id = person.Id }, new { @class = "btn btn-link" })</td>
                 </tr>
             }
         </tbody>
