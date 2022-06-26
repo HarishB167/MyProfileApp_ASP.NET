@@ -13,16 +13,16 @@ namespace MyProfileApp.App_Start
         public MappingProfile()
         {
             Mapper.CreateMap<Project, ProjectDto>();
-            Mapper.CreateMap<ProjectDto, Project>();
+            Mapper.CreateMap<ProjectDto, Project>().ForMember(m => m.Id, opt => opt.Ignore());
 
             Mapper.CreateMap<Education, EducationDto>();
-            Mapper.CreateMap<EducationDto, Education>();
+            Mapper.CreateMap<EducationDto, Education>().ForMember(m => m.Id, opt => opt.Ignore());
 
             Mapper.CreateMap<Experience, ExperienceDto>();
-            Mapper.CreateMap<ExperienceDto, Experience>();
+            Mapper.CreateMap<ExperienceDto, Experience>().ForMember(m => m.Id, opt => opt.Ignore());
 
             Mapper.CreateMap<Training, TrainingDto>();
-            Mapper.CreateMap<TrainingDto, Training>();
+            Mapper.CreateMap<TrainingDto, Training>().ForMember(m => m.Id, opt => opt.Ignore());
         }
     }
 }

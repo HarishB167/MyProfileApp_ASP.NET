@@ -1,0 +1,34 @@
+﻿@model MyProfileApp.ViewModels.AddSkillNLanguageViewModel
+@{
+    ViewBag.Title = "Profie";
+}
+
+@if (Model.Skill.Id == 0 && Model.Language.Id == 0)
+{
+    <h1>New Skills / Language</h1>
+}
+else
+{
+    <h1>Edit Skills / Language</h1>
+}
+
+@using (Html.BeginForm("SaveSkillNLanguage", "SkillNLanguage"))
+{
+    <div class="row">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Skill.Name)
+            @Html.TextBoxFor(m => m.Skill.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Skill.Name)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Language.Name)
+            @Html.TextBoxFor(m => m.Language.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Language.Name)
+        </div>
+    </div>
+    @Html.HiddenFor(m => m.Skill.Id)
+    @Html.HiddenFor(m => m.Language.Id)
+    @Html.HiddenFor(m => m.PersonId)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}

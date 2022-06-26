@@ -215,9 +215,14 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\ProfileController.cs" />
+    <Compile Include="Controllers\EducationController.cs" />
+    <Compile Include="Controllers\ExperienceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\SkillNLanguageController.cs" />
+    <Compile Include="Controllers\TrainingController.cs" />
     <Compile Include="Dtos\EducationDto.cs" />
     <Compile Include="Dtos\ExperienceDto.cs" />
     <Compile Include="Dtos\ProfileDto.cs" />
@@ -256,6 +261,8 @@
     <Compile Include="Models\Training.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AddSkillNLanguageViewModel.cs" />
+    <Compile Include="ViewModels\SavePersonContactViewModel.cs" />
     <Compile Include="ViewModels\SaveProfileViewModel.cs" />
     <Compile Include="ViewModels\ViewProfileViewModel.cs" />
   </ItemGroup>
@@ -324,6 +331,13 @@
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\View.cshtml" />
     <Content Include="Views\Profile\ProfileForm.cshtml" />
+    <Content Include="Views\Profile\PersonForm.cshtml" />
+    <Content Include="Views\Profile\AddInfoForm.cshtml" />
+    <Content Include="Views\Education\AddEducation.cshtml" />
+    <Content Include="Views\Experience\AddExperience.cshtml" />
+    <Content Include="Views\Project\AddProject.cshtml" />
+    <Content Include="Views\Training\AddTraining.cshtml" />
+    <Content Include="Views\SkillNLanguage\AddSkillNLanguage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
