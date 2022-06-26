@@ -1,0 +1,64 @@
+﻿@model MyProfileApp.ViewModels.AddEditProjectViewModel
+@{
+    ViewBag.Title = "Profie";
+}
+
+@if (Model.Project.Id == 0)
+{
+    <h1>New Project</h1>
+}
+else
+{
+    <h1>Edit Project</h1>
+}
+
+@using (Html.BeginForm("SaveProject", "Project"))
+{
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Project.Title)
+                @Html.TextBoxFor(m => m.Project.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Project.Title)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Project.Subtitle)
+                @Html.TextBoxFor(m => m.Project.Subtitle, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Project.Subtitle)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Project.Description)
+                @Html.TextBoxFor(m => m.Project.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Project.Description)
+            </div>
+        </div>
+        <div class="col-8">
+            <table class="table table-striped table-hover ">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Subtitle</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var project in Model.ExistingProjects)
+                    {
+                        <tr>
+                            <td>@project.Title</td>
+                            <td>@project.Subtitle</td>
+                            <td>@Html.RouteLink("Edit", "EditProject", new { perId = project.PersonId, projectId = project.Id }, new { @class = "btn btn-link" })</td>
+                            <td>@Html.ActionLink("Delete", "Delete", "Project", new { id = project.Id }, new { @class = "btn btn-danger btn-sm" })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @Html.HiddenFor(m => m.Project.Id)
+    @Html.HiddenFor(m => m.Project.PersonId)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}

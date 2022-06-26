@@ -25,7 +25,7 @@
                     <td>@Html.ActionLink(person.Name, "View", "Profile", new { id = person.Id }, null)</td>
                     <td>@person.ProfileStatement</td>
                     <td>@Html.ActionLink("Edit", "AddEditInfo", "Profile", new { id = person.Id }, new { @class = "btn btn-link" })</td>
-                    <td>@Html.ActionLink("Delete", "Delete", "Profile", new { id = person.Id }, new { @class = "btn btn-danger" })</td>
+                    <td>@Html.ActionLink("Delete", "Delete", "Profile", new { id = person.Id }, new { @class = "btn btn-danger btn-sm" })</td>
                 </tr>
             }
         </tbody>
